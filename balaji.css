@@ -1,0 +1,126 @@
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f0f0f0;
+    font-family: 'Nunito', sans-serif;
+    line-height: 1.6;
+}
+
+img {
+    border-radius: 50%;
+    height: 220px;
+    width: 220px;
+    display: block;
+    margin: 7.5% auto 20px;
+    transition: margin 0.3s ease;
+}
+
+#bio {
+    padding: 20px;
+    margin-top: 9%;
+    background-color: white; 
+    border-radius: 10px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+}
+
+a {
+    text-decoration: none;
+    color: #333; 
+    transition: color 0.3s ease; 
+}
+
+a:hover {
+    color: #555
+}
+
+p, h1, h2, h3 {
+    color: #333;
+}
+
+h1, h2, h3 {
+    display: inline;
+}
+
+#nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#nav a {
+    margin: 0 10px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+#intro,
+#Creations,
+#int,
+#stud {
+    height: 100vh;
+    padding: 25px;
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 10px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+}
+
+#header {
+    padding: 20px;
+    position: fixed;
+    background: linear-gradient(to right, #4CAF50, #2196F3);
+    color: white; 
+    width: 100%;
+    z-index: 100;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#nav a:hover {
+    color: #555;
+}
+
+#main {
+    margin-top: 20px;
+}
+
+#menu {
+    margin-left: 39.8px; 
+    font-size: 20px; 
+    border-radius: 5px;
+    padding: 10px 15px;
+    border: 1px solid #333; 
+    cursor: pointer;
+    position: fixed;
+    background-color: white;
+}
+
+@media screen and (max-width: 770px) {
+#img{
+    margin-top: 130px;
+}
+#header{
+    height: 140px;
+    font-size: 12px;
+}
+
+#intro,
+#Creations,
+#int,
+#stud{
+    font-size: 13.7px;
+}
+
+#nav a{
+    margin-left: 0;
+    font-size: 15px;
+    font-weight: 500;
+}
+}
