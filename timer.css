@@ -1,0 +1,29 @@
+body{
+    padding: 0;
+    margin: 0;
+    font-family: "Ubuntu", sans-serif;
+}
+
+.btn{
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background-color: white;
+    padding: 10px;
+    margin: 10px;
+}
+div{
+    margin-top: 15%;
+}
+#darkBtn{
+    margin-left: 90%;
+}
+
+.dark-mode{
+    background-color: black;
+    color: white;
+    button{
+        background-color: black;
+        color: white;
+    }
+}

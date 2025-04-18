@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TicTacToe</title>
+
+    <link rel="stylesheet" href="TTT.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+</head>
+<body>
+   <!--- <div id="top">
+    <button class="choiceBtn" id="hVh" onclick="humanVshuman()">Human Vs Human</button>
+    <button class="choiceBtn" id="cVh">Computer Vs Human</button>
+    </div>--->
+
+    <div id="gameCon">
+    
+    <h1>Tic Tac Toe</h1>
+
+    <div id="gameColm">
+    <div cellIndex="0" id="cell0" class="cell" onclick="play(this)"></div>
+    <div cellIndex="1" id="cell1" class="cell" onclick="play(this)"></div>
+    <div cellIndex="2" id="cell2" class="cell" onclick="play(this)"></div>
+    <div cellIndex="3" id="cell3" class="cell" onclick="play(this)"></div>
+    <div cellIndex="4" id="cell4" class="cell" onclick="play(this)"></div>
+    <div cellIndex="5" id="cell5" class="cell" onclick="play(this)"></div>
+    <div cellIndex="6" id="cell6" class="cell" onclick="play(this)"></div>
+    <div cellIndex="7" id="cell7" class="cell" onclick="play(this)"></div>
+    <div cellIndex="8" id="cell8" class="cell" onclick="play(this)"></div>
+    </div>
+
+    <h3 id="resText">Result here</h3>
+
+    <button id="restBtn" onclick="reStart()"><i class="fa-solid fa-arrow-rotate-right"></i></button>
+
+    </div>
+    
+    <script src="TTT.js"></script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100;0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400;1,9..40,600&family=Inter:wght@300;500&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;1,500&family=Nunito:ital,wght@0,200;0,300;0,400;0,600;1,400;1,600&family=Oswald:wght@300;400;500;600&family=Rubik:wght@400;500;600;700&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    font-family: 'DM Sans', sans-serif;
+    font-family: 'Inter', sans-serif;
+    font-family: 'Kanit', sans-serif;
+    font-family: 'Nunito', sans-serif;
+    font-family: 'Oswald', sans-serif;
+    font-family: 'Rubik', sans-serif;
+    background-color: rgb(246, 124, 124);
+}
+.btnContiner{
+    cursor: pointer;
+    border-radius: 100%;
+    background-color: rgb(0, 211, 0);
+    border: none;
+    font-size: 26px;
+    padding: 5px 6px;
+    margin-left: 16px;
+}
+
+#btnDiv{
+    margin-left: 43%;
+    margin-top: 10%;
+}
+
+#computerText {
+    display: inline-block;
+}
+
+#playerText {
+    margin-left: 4%;
+    display: inline-block;
+    width: 81%;
+}
+
+.resultDisplay{
+    display: inline;
+    font-size: 26px;
+}
+
+p{
+    display: inline;
+}
+
+#humanDisplay{
+    margin-left: 6%;
+    margin-right: 81.5%;
+}
+
+#resText{
+    margin-left: 42%;
+    margin-top: 50px;
+}
+
+#display{
+    margin-top: 3%;
+}
+@media screen and (min-width: 890px) and (max-width: 1200px) {
+    #playerText {
+        margin-left: 6%;
+        display: inline-block;
+        width: 70%;
+    }
+    .text{
+        font-size: 28px;
+    }
+    }
+@media screen and (min-width: 10px) and (max-width: 889px) {
+    body{
+        background-color: green;
+    }
+    #playerText {
+        margin-left: 4%;
+        display: inline-block;
+        width: 74%;
+    }
+    #resText{
+        margin-left: 30%;
+    }
+    #btnDiv{
+        margin-left: 35%;
+    }
+    .text{
+        font-size: 22px;
+    }
+}
+@media screen and (min-width: 5px) and (max-width: 670px) {
+    body{
+        background-color: brown;
+    }
+    #playerText {
+        margin-left: 4%;
+        display: inline-block;
+        width: 69%;
+    }
+    #resText{
+        margin-left: 30%;
+    }
+    #btnDiv{
+        margin-left: 30%;
+        margin-top: 18%;
+    }
+    .text{
+        font-size: 20px;
+    }
+    #humanDisplay{
+        margin-left: 6%;
+        margin-right: 70%;
+    }
+}

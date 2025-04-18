@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+
+    <link rel="stylesheet" href="Game.css" id="css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div id="point">
+    <p>Player:</p>
+    <p id="win">0|</p>
+    <p>Computer:</p>
+    <p id="lose">0|</p>
+    <p>Draw:</p>
+    <p id="draw">0</p>
+    </div>
+
+    <div id="display">
+    <h1 id="playerText" class="text">Player</h1>
+
+    <h1 id="computerText" class="text">Computer</h1>
+    </div>
+
+    <p id="humanDisplay" class="resultDisplay"></p>
+    <p id="computerDisplay" class="resultDisplay"></p>
+
+    <div id="btnDiv">
+    <button id="rock" class="btnContiner" class="text" onclick="rock()"><i class="fa-solid fa-hand-rock"></i></button>
+    <button id="paper" class="btnContiner" class="text" onclick="paper()"><i class="fa-solid fa-hand-paper"></i></button>
+    <button id="scissors" class="btnContiner" class="text" onclick="scissor()"><i class="fa-solid fa-hand-scissors"></i></button>
+    </div>
+
+    <h2 id="resText" class="text">Result:(your result)</h2>
+
+    <script src="Game.js"></script>
+</body>
+</html>

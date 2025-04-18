@@ -1,0 +1,66 @@
+body{
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+    background-color: burlywood;
+}
+.cell{
+    width: 75px;
+    height: 75px;
+    border: 3px solid;
+    box-shadow: 0 0 0 2px;
+    font-size: 65px;
+    cursor: pointer;
+    background-color: white;
+}
+#gameColm{
+    display: grid;
+    grid-template-columns: repeat(3,auto);
+    width: 230px;
+    margin: auto;
+}
+
+#restBtn{
+    cursor: pointer;
+    margin-top: 2%;
+    background-color: blueviolet;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 16px;
+    font-size: 22px;
+}
+
+#resText{
+    margin-top: 50px;
+}
+
+.choiceBtn{
+    margin: 0;
+    cursor: pointer;
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 22px;
+}
+#hVh{
+    margin-right: 20%;
+}
+
+#gameCon{
+    margin-top: 3%;
+}
+
+#top{
+    padding: 20px;
+    background: linear-gradient(to right, #4CAF50, #2196F3);
+    z-index: 100;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 6px;
+}
+
+@media screen and (max-width: 767px) {
+    #gameCon{
+        margin-top: 10%;
+    }
+}

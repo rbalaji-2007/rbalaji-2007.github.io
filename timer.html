@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@40,400,0,0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="C:\Users\User\Desktop\html\Timer\timer.css">
+</head>
+<body>
+    <button class="btn" id="darkBtn" onclick="toggleMode()"> <span class="material-symbols-outlined">
+        bedtime
+        </span> </button>
+    <center>
+    <div>
+        <h1><span class="material-symbols-outlined">
+            timer
+            </span></h1>
+        <h1 id="h1">000 : 00 : 00</h1>
+        <h3 id="h3"></h3>
+        <button class="btn" id="btn" onclick="toogle()"><span class="material-symbols-outlined">
+            play_pause
+            </span></button>
+        <button class="btn" onclick="reset()"><span class="material-symbols-outlined">
+            restart_alt
+            </span></button>
+        <h1 id="Clock"> 12:00:00 AM
+        </h1>
+        <button onclick="c24()">24 hours</button>
+        <button onclick="c12()">12 hours</button>
+    </div>
+    </center>
+
+<script src="C:\Users\User\Desktop\html\Timer\timer.js"></script>
+</body>
+</html>
