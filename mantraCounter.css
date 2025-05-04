@@ -1,0 +1,29 @@
+body{
+    margin: 3%;
+    justify-content: center;
+    background-color: black;
+    color: white;
+}
+
+#head{
+    margin-left: 45%;
+}
+
+p{
+    margin-left: 37%;
+    margin-top: 3%;
+}
+
+#coun{
+    margin-left: 51%;
+    margin-top: 11%;
+}
+button{
+    margin-left: 51%;
+    margin-top: 8%;
+    font-size: 100%;
+    background-color: black;
+    color: rgb(243, 120, 120);
+    border: none;
+    cursor: pointer;
+}
