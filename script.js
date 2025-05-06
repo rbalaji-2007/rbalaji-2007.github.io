@@ -12,4 +12,4 @@ function openMenu () {
         nav.style.display='inline'
         menu.style.marginLeft='39.8%'
     }
-}
+} */
