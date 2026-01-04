@@ -114,7 +114,7 @@
     <div class="heart" style="top: 50%; left: 50%;">💖</div>
     <div class="container">
         <div id="gif-container">
-            <img id="cat-gif" src="gif/cat-cat-meme.webp" alt="Happy Cat" onerror="showPlaceholder('Happy Cat 😺')">
+            <img id="cat-gif" src="gif/cat-kiss.gif" alt="Happy Cat" onerror="showPlaceholder('Happy Cat 😺')">
         </div>
         <div id="question-container">
             <div class="question" id="question-1">Do you love me?</div>
@@ -130,10 +130,9 @@
     </div>
 
     <script>
-        // FIXED PATHS 2: All paths now look like "gif/filename.webp"
         const questions = [
-            { text: "Do you love me?", happyGif: "gif/mochi-peach.webp", sadGif: "gif/cat-cry-kitten-cry.webp" },
-            { text: "Will you be my valentine?", happyGif: "gif/cat-gun.gif", sadGif: "gif/cat-cry-kitten-cry.webp" },
+            { text: "Do you love me?", happyGif: "gif/mochi-peach.webp", sadGif: "gif/1st-no.gif" },
+            { text: "Will you be my valentine?", happyGif: "gif/cat-gun.gif", sadGif: "gif/2nd-no.gif" },
             { text: "Am I the best?", happyGif: "gif/cat-smile.gif", sadGif: "gif/cat-cry-kitten-cry.webp" },
             { text: "Do you think I'm cute?", happyGif: "gif/cat-three.gif", sadGif: "gif/cat-cry-kitten-cry.webp" },
             { text: "Will you marry me someday?", happyGif: "gif/cat-last.gif", sadGif: "gif/cat-cry-kitten-cry.webp" }
@@ -142,6 +141,9 @@
         let currentQuestionIndex = 0;
         let yesScale = 1;
         let noScale = 1;
+        
+        // NEW VARIABLE: Tracks how many times "No" is clicked
+        let noClickCount = 0;
 
         const MAX_YES_SCALE = 2.5; 
         const MIN_NO_SCALE = 0.5;
@@ -171,23 +173,38 @@
             currentQuestionIndex++;
             if (currentQuestionIndex < questions.length) {
                 loadQuestion(currentQuestionIndex);
+                
+                // RESET EVERYTHING FOR THE NEXT QUESTION
                 yesScale = 1;
                 noScale = 1;
+                noClickCount = 0; // Reset the "No" counter
                 updateButtonStyles();
             } else {
                 questionContainer.classList.add('hidden');
                 endMessage.classList.remove('hidden');
-                // FIXED PATH 3: Removed the "E:\Documents..." local path
                 catGif.src = "gif/cat-cat-meme.webp";
             }
         });
 
         noBtn.addEventListener('click', () => {
+            // 1. Increment the "No" counter
+            noClickCount++;
+
             const q = questions[currentQuestionIndex];
-            catGif.src = q.sadGif;
+
+            // 2. CHECK: If clicked more than 5 times, show special sad gif
+            if (noClickCount > 5) {
+                catGif.src = "gif/con-sad.gif";
+            } else {
+                // Otherwise show the normal sad gif for this question
+                catGif.src = q.sadGif;
+            }
+            
+            // Standard button shrinking logic
             noScale = Math.max(MIN_NO_SCALE, noScale * 0.85);
             yesScale = Math.min(MAX_YES_SCALE, yesScale * 1.2);
             updateButtonStyles();
+            
             document.body.style.animation = 'shake 0.5s';
             setTimeout(() => { document.body.style.animation = ''; }, 1000);
         });
