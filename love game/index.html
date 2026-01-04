@@ -98,6 +98,21 @@
         #no-btn { background-color: #f44336; color: white; position: relative; }
         #no-btn:hover { animation: moveNo 0.5s ease-in-out infinite; }
 
+        /* NEW: Music Button Style */
+        #music-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
         @keyframes moveNo {
             0% { transform: translateX(0) scale(var(--scale-factor, 1)); }
             25% { transform: translateX(-5px) scale(var(--scale-factor, 1)); }
@@ -110,6 +125,13 @@
     </style>
 </head>
 <body>
+    <audio id="bg-music" loop>
+        <source src="music/song.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <button id="music-toggle">🎵</button>
+
     <div class="heart" style="top: 10%; left: 5%;">❤️</div>
     <div class="heart" style="top: 50%; left: 50%;">💖</div>
     <div class="container">
@@ -141,8 +163,6 @@
         let currentQuestionIndex = 0;
         let yesScale = 1;
         let noScale = 1;
-        
-        // NEW VARIABLE: Tracks how many times "No" is clicked
         let noClickCount = 0;
 
         const MAX_YES_SCALE = 2.5; 
@@ -154,6 +174,50 @@
         const endMessage = document.getElementById('end-message');
         const yesBtn = document.getElementById('yes-btn');
         const noBtn = document.getElementById('no-btn');
+        
+        // MUSIC LOGIC
+        const bgMusic = document.getElementById('bg-music');
+        const musicToggle = document.getElementById('music-toggle');
+        let isPlaying = false;
+
+        function toggleMusic() {
+            if (isPlaying) {
+                bgMusic.pause();
+                musicToggle.textContent = "🔇";
+            } else {
+                bgMusic.play().then(() => {
+                    musicToggle.textContent = "🎵";
+                }).catch(e => console.log("Interaction required for audio"));
+            }
+            isPlaying = !isPlaying;
+        }
+
+        // Try to play immediately (might get blocked by browser)
+        bgMusic.volume = 0.5; // Set volume to 50%
+        
+        musicToggle.addEventListener('click', () => {
+            // If they click the music button, we manually toggle
+            if (bgMusic.paused) {
+                bgMusic.play();
+                musicToggle.textContent = "🎵";
+                isPlaying = true;
+            } else {
+                bgMusic.pause();
+                musicToggle.textContent = "🔇";
+                isPlaying = false;
+            }
+        });
+
+        // AUTO-PLAY HELPER: Browsers block audio until user interacts.
+        // We hook into the Yes/No buttons to start music if it hasn't started yet.
+        function ensureMusicPlays() {
+            if (bgMusic.paused) {
+                bgMusic.play().then(() => {
+                    isPlaying = true;
+                    musicToggle.textContent = "🎵";
+                }).catch(e => console.log("Waiting for interaction"));
+            }
+        }
 
         function loadQuestion(index) {
             const q = questions[index];
@@ -170,14 +234,13 @@
         }
 
         yesBtn.addEventListener('click', () => {
+            ensureMusicPlays(); // Try to start music
             currentQuestionIndex++;
             if (currentQuestionIndex < questions.length) {
                 loadQuestion(currentQuestionIndex);
-                
-                // RESET EVERYTHING FOR THE NEXT QUESTION
                 yesScale = 1;
                 noScale = 1;
-                noClickCount = 0; // Reset the "No" counter
+                noClickCount = 0;
                 updateButtonStyles();
             } else {
                 questionContainer.classList.add('hidden');
@@ -187,20 +250,16 @@
         });
 
         noBtn.addEventListener('click', () => {
-            // 1. Increment the "No" counter
+            ensureMusicPlays(); // Try to start music
             noClickCount++;
-
             const q = questions[currentQuestionIndex];
 
-            // 2. CHECK: If clicked more than 5 times, show special sad gif
-            if (noClickCount > 3) {
+            if (noClickCount > 5) {
                 catGif.src = "gif/con-sad.gif";
             } else {
-                // Otherwise show the normal sad gif for this question
                 catGif.src = q.sadGif;
             }
             
-            // Standard button shrinking logic
             noScale = Math.max(MIN_NO_SCALE, noScale * 0.85);
             yesScale = Math.min(MAX_YES_SCALE, yesScale * 1.2);
             updateButtonStyles();
@@ -209,7 +268,6 @@
             setTimeout(() => { document.body.style.animation = ''; }, 1000);
         });
 
-        // Initial load
         loadQuestion(0);
     </script>
 </body>
